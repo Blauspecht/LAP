@@ -1,0 +1,56 @@
+CREATE DATABASE IF NOT EXISTS Filmverwaltung;
+CREATE SCHEMA IF NOT EXISTS Filmverwaltung;
+CREATE USER 'root2'@'localhost' IDENTIFIED BY 'p4ssw0rd';
+GRANT ALL PRIVILEGES ON Filmverwaltung.* TO 'root2'@'localhost';
+
+USE Filmverwaltung;
+
+CREATE TABLE IF NOT EXISTS Studio (
+  id INT NOT NULL,
+  name VARCHAR(45) NOT NULL,
+  PRIMARY KEY (id));
+
+CREATE TABLE IF NOT EXISTS Film (
+  id INT NOT NULL AUTO_INCREMENT,
+  titel VARCHAR(1000) NOT NULL,
+  erscheinungsdatum DATE NOT NULL,
+  Studio_id INT NOT NULL,
+  PRIMARY KEY (id),
+  CONSTRAINT fk_Film_Studio
+    FOREIGN KEY (Studio_id)
+    REFERENCES Studio (id)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+
+ALTER TABLE Film AUTO_INCREMENT=3000;
+
+CREATE TABLE IF NOT EXISTS Land (
+  id INT NOT NULL AUTO_INCREMENT,
+  name VARCHAR(45) NOT NULL,
+  PRIMARY KEY (id));
+
+CREATE TABLE IF NOT EXISTS Schauspieler (
+  id INT NOT NULL AUTO_INCREMENT,
+  vorname VARCHAR(45) NULL,
+  nachname VARCHAR(45) NULL,
+  Land_id INT NOT NULL,
+  PRIMARY KEY (id),
+  CONSTRAINT fk_Schauspieler_Land
+    FOREIGN KEY (Land_id)
+    REFERENCES Land (id)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+
+CREATE TABLE IF NOT EXISTS Film_Schauspieler (
+  Schauspieler_id INT NOT NULL,
+  Film_id INT NOT NULL,
+  CONSTRAINT fk_Film_Schauspieler
+    FOREIGN KEY (Schauspieler_id)
+    REFERENCES Schauspieler (id)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT fk_Schauspieler_Film
+    FOREIGN KEY (Film_id)
+    REFERENCES Film (id)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
