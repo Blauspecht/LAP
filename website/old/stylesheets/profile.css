@@ -1,0 +1,14 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.flex-container {
+    display: flex;
+}
+
+.content .userInfo, .userPicture {
+    width: 50%;
+    padding: 10px;
+}

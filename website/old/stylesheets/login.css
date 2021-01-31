@@ -1,0 +1,49 @@
+.content .loginForm, .registerForm {
+    padding: 10px;
+}
+
+.content .registerForm {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.content .registerForm .heading {
+    padding: 10px;
+}
+
+.content .registerForm .accountInfo, .adressInfo {
+    width: 50%;
+    padding: 10px;
+}
+
+.content .registerForm .height {
+    display: flex;
+    align-items: center;
+    min-height: 31px;
+}
+
+.content .registerForm input.block {
+    box-sizing: border-box;
+    margin: 3px 0;
+    max-height: 31px;
+    padding: 10px;
+}
+
+.content .registerForm .fileInfo {
+    width: 100%;
+    display: grid;
+    padding: 10px;
+}
+
+.content .registerForm > div {
+    padding: 20px;
+}
+
+.content form h3 {
+    padding: 10px;
+}
+
+.register-container {
+    display: flex;
+}

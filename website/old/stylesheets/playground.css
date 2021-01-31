@@ -1,0 +1,30 @@
+.content {
+    text-align: center;
+    background-color: #222;
+    height: 100%;
+}
+
+.content > div {
+    padding: 5%;
+}
+
+#dosbox .dosbox-start {
+    position: relative;
+    left: 0;
+    top: 0;
+    box-sizing: border-box;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dosbox-powered {
+    opacity: 0;
+}
+
+.dosbox-container {
+    margin: auto;
+    width: 640px;
+    height: 400px;
+}
