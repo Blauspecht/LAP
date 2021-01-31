@@ -1,0 +1,21 @@
+.content {
+    display: inline-flex;
+}
+
+.content > div {
+    width: 50%;
+}
+
+.content section {
+    padding: 10px;
+}
+
+.content article {
+    padding: 10px;
+}
+
+.content aside {
+    height: fit-content;
+    text-align: center;
+    padding: 10px;
+}
