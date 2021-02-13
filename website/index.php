@@ -9,24 +9,27 @@
 <body>
 <form action='searchInput.php' method='post'>
     <label for="searchInput">Search for User: </label>
-    <input id="searchInput" name="searchInput" type="text" pattern='.{2,}' required>
+    <input id="searchInput" name="searchInput" type="text" pattern='.+' required>
+    <input type="submit" value="Submit">
+</form>
+<form action='insertInput.php' method='post'>
+    <label for="insertValue">Insert Value into test2: </label>
+    <input id="insertValue" name="insertValue" type="text" required>
     <input type="submit" value="Submit">
 </form>
 <table id="userTable">
     <tr>
-        <th>GRANTEE</th>
-        <th>TABLE_CATALOG</th>
-        <th>PRIVILEGE_TYPE</th>
-        <th>IS_GRANTABLE</th>
+        <th>ID</th>
+        <th>TITLE</th>
     </tr>
     <?php
     try {
         $connection = new PDO("mysql:host=localhost", "root", "");
         $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $selectAllUsers = "SELECT * FROM information_schema.user_privileges WHERE GRANTEE NOT LIKE '%::1%';";
+        $selectAll = "SELECT * FROM test1.test2;";
 
-        foreach ($connection->query($selectAllUsers) as $row) {
+        foreach ($connection->query($selectAll) as $row) {
             printTr($row);
         }
         $connection = null;
@@ -37,8 +40,8 @@
 
     function printTr($row)
     {
-        $TR = '<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>';
-        echo sprintf($TR, $row['GRANTEE'], $row['TABLE_CATALOG'], $row['PRIVILEGE_TYPE'], $row['IS_GRANTABLE']);
+        $TR = '<tr><td>%s</td><td>%s</td></tr>';
+        echo sprintf($TR, $row['id'], $row['titel']);
     }
 
     ?>
