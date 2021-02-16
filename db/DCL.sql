@@ -1,12 +1,12 @@
 
--- CREATE AND DELETE ------------------------------------------------------------------------------
+-- CREATE AND DELETE USER -------------------------------------------------------------------------
 
 -- Create User --
 CREATE USER 'someuser'@'localhost' IDENTIFIED BY 'password';
 
 -- Delete User --
 DROP USER 'someuser'@'localhost';
--- SELECT user FROM mysql.user;
+-- SELECT USER FROM mysql.user;
 
 
 -- GRANT PRIVILEGES -------------------------------------------------------------------------------
